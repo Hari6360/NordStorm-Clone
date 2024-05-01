@@ -54,3 +54,56 @@ function createNavbar() {
 }
 
 createNavbar();
+
+let options = () => {
+	const optionsBar = document.createElement("div");
+	optionsBar.classList.add("options-bar");
+
+	const list = document.createElement("ul");
+	list.classList.add("list-container");
+
+	const items = [
+		"New",
+		"Sale",
+		"Women",
+		"Men",
+		"Kids",
+		"Designer",
+		"Shoes",
+		"Accessories",
+		"Home",
+		"Beauty",
+		"Gifts",
+		"Explore",
+	];
+
+	items.forEach((text) => {
+		const listItems = document.createElement("li");
+		listItems.classList.add("list-container");
+		listItems.innerHTML = `<a href="#"> ${text}</a>`;
+
+		list.append(listItems);
+	});
+
+	optionsBar.appendChild(list);
+	productsContainer.append(optionsBar);
+};
+options();
+
+let top_banner = () => {
+	const banner = document.createElement("div");
+	banner.classList.add("top-banner");
+	const image = document.createElement("img");
+	image.src = "https://tpc.googlesyndication.com/simgad/12686039279685891800?";
+	const text = document.createElement("span");
+	text.classList.add("image-text");
+	text.innerHTML = `Mother's Day gift from DIOR <br />
+    celebrate her unique beuty with Rouge Dior lipstick
+    `;
+
+	banner.appendChild(image);
+	banner.appendChild(text);
+
+	productsContainer.appendChild(banner);
+};
+top_banner();
