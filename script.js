@@ -14,10 +14,14 @@ function createNavbar() {
 	const navbar = document.createElement("nav");
 	navbar.classList.add("navbar");
 
+	const logoLink = document.createElement("a");
+	logoLink.setAttribute("href", "index.html");
+
 	const logo = document.createElement("div");
 	logo.classList.add("logo");
 	logo.textContent = "NORDSTORM";
 
+	logoLink.appendChild(logo);
 	const searchBar = document.createElement("div");
 	searchBar.classList.add("search-bar");
 	searchBar.innerHTML = `<input type="text" placeholder="Search...">`;
@@ -26,19 +30,22 @@ function createNavbar() {
 	menuList.classList.add("nav-list");
 
 	const items = [
-		{ name: "SignIn", icon: "fa-user" },
-		{ name: "Stores", icon: "fa-solid fa-store" },
-		{ name: "Purchases", icon: "fa-shopping-cart" },
+		{ name: "SignIn", icon: "fa-user", link: "signup/signIn.html" },
+		{ name: "Stores", icon: "fa-solid fa-store", link: "index.html" },
+		{ name: "Purchases", icon: "fa-shopping-cart", link: "index.html" },
 	];
 
 	items.forEach((item) => {
 		const listItem = document.createElement("li");
-		listItem.innerHTML = `<a href="#"><i class="fas ${item.icon}"></i> ${item.name}</a> <i class="fas fa-caret-down"></i>`;
+		const anchor = document.createElement("a");
+		anchor.href = item.link;
+		anchor.innerHTML = `<i class="fas ${item.icon}"></i> ${item.name}`;
+		listItem.appendChild(anchor);
 		menuList.appendChild(listItem);
 	});
 
 	const cartItem = document.createElement("li");
-	cartItem.innerHTML = `<a href="#"><i class="fas fa-shopping-cart"></i> Cart</a>`;
+	cartItem.innerHTML = `<a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a>`;
 	menuList.appendChild(cartItem);
 
 	navbar.appendChild(logo);
@@ -51,7 +58,7 @@ function createNavbar() {
 	productsContainer.appendChild(line);
 }
 
-let options = () => {
+const options = () => {
 	const optionsBar = document.createElement("div");
 	optionsBar.classList.add("options-bar");
 
@@ -76,30 +83,45 @@ let options = () => {
 	items.forEach((text) => {
 		const listItem = document.createElement("li");
 		listItem.classList.add("list-container");
-		listItem.innerHTML = `<a href="#"> ${text}</a>`;
+		const link = document.createElement("a");
+		link.href = "#";
+		link.textContent = text;
+		listItem.appendChild(link);
 
 		listItem.addEventListener("mouseenter", function () {
 			if (text === "New" || text === "Women" || text === "Men") {
 				showDropdown();
 			}
 		});
+
 		listItem.addEventListener("mouseleave", function () {
 			if (text === "New" || text === "Women" || text === "Men") {
 				hideDropdown();
 			}
 		});
 
-		list.append(listItem);
+		if (text === "Men") {
+			link.addEventListener("click", function () {
+				window.location.href = "mens/men.html";
+			});
+		}
+		if (text === "Women") {
+			link.addEventListener("click", function () {
+				window.location.href = "womens/women.html";
+			});
+		}
+
+		list.appendChild(listItem);
 	});
 
 	optionsBar.appendChild(list);
-	productsContainer.append(optionsBar);
+	productsContainer.appendChild(optionsBar);
 };
 
 let dropdown = () => {
 	const dropdownBar = document.createElement("div");
 	dropdownBar.classList.add("dropDown_container");
-	dropdownBar.style.display = "none"; // Initially hide the dropdown
+	dropdownBar.style.display = "none";
 
 	const mainCategories = [
 		{
@@ -360,29 +382,11 @@ function createShopSection() {
 	shopContainer.classList.add("shop-container");
 
 	const introText = document.createElement("div");
-	introText.textContent =
-		"Shop what you love—faster and easier.\nSign In or Create an Account";
+	introText.innerHTML = `Shop what you love—faster and easier.<br> Sign In or Create an Account`;
 	introText.classList.add("intro-text");
 	shopContainer.appendChild(introText);
 
-	const products = [
-		{
-			imageUrl: "https://example.com/image1.jpg",
-			description: "Product 1 Description",
-			price: "$10",
-			offer: "20% OFF",
-			strikePrice: "$12",
-			rating: 4,
-		},
-		{
-			imageUrl: "https://example.com/image2.jpg",
-			description: "Product 2 Description",
-			price: "$15",
-			offer: "30% OFF",
-			strikePrice: "$20",
-			rating: 5,
-		},
-
+	const product = [
 		{
 			image:
 				"https://n.nordstrommedia.com/id/sr3/73dfe531-8ce2-4601-ac2b-cfe942849b29.jpeg?q=45&dpr=2&h=365.31&w=230",
@@ -408,16 +412,6 @@ function createShopSection() {
 				"https://n.nordstrommedia.com/id/sr3/d35d36c5-cdb0-4dff-9c1b-4d2ed3fa400b.jpeg?q=45&dpr=2&h=365.31&w=230",
 			name: "Vineyard Vines",
 			name2: "Dhillion",
-			price: "Aud 92.57 - 94.76",
-			strikeOff: "Aud 138.95",
-			offer: "up to 35% off",
-			extra: "Color/Sizes",
-		},
-		{
-			image:
-				"https://n.nordstrommedia.com/id/sr3/d35d36c5-cdb0-4dff-9c1b-4d2ed3fa400b.jpeg?q=45&dpr=2&h=365.31&w=230",
-			name: "Vineyard Vines",
-			name2: "Hewlett",
 			price: "Aud 92.57 - 94.76",
 			strikeOff: "Aud 138.95",
 			offer: "up to 35% off",
@@ -474,20 +468,19 @@ function createShopSection() {
 			extra: "Color/Sizes",
 		},
 	];
-
-	products.forEach((product) => {
+	product.forEach((product) => {
 		const productDiv = document.createElement("div");
 		productDiv.classList.add("product");
 
 		const image = document.createElement("img");
-		image.src = product.imageUrl;
+		image.src = product.image;
 		image.alt = "Product Image";
 		productDiv.appendChild(image);
 
-		const description = document.createElement("div");
-		description.textContent = product.description;
-		description.classList.add("description");
-		productDiv.appendChild(description);
+		const name = document.createElement("div");
+		name.textContent = product.name;
+		name.classList.add("name");
+		productDiv.appendChild(name);
 
 		const price = document.createElement("div");
 		price.textContent = product.price;
@@ -500,25 +493,41 @@ function createShopSection() {
 		productDiv.appendChild(offer);
 
 		const strikePrice = document.createElement("div");
-		strikePrice.textContent = product.strikePrice;
+		strikePrice.textContent = product.strikeOff;
 		strikePrice.classList.add("strike-price");
 		productDiv.appendChild(strikePrice);
 
-		const rating = document.createElement("div");
-		for (let i = 0; i < product.rating; i++) {
-			const star = document.createElement("i");
-			star.classList.add("fa", "fa-star");
-			rating.appendChild(star);
-		}
-		rating.classList.add("rating");
-		productDiv.appendChild(rating);
+		// const rating = document.createElement("div");
+		// for (let i = 0; i < product.rating; i++) {
+		// 	const star = document.createElement("i");
+		// 	star.classList.add("fa", "fa-star");
+		// 	rating.appendChild(star);
+		// }
+		// rating.classList.add("rating");
+		// productDiv.appendChild(rating);
 
 		shopContainer.appendChild(productDiv);
 	});
 
 	return shopContainer;
 }
+let middle_banner = () => {
+	const banner = document.createElement("div");
+	banner.classList.add("top-banner");
+	const image = document.createElement("img");
+	image.src =
+		"https://cdn.smartnordstrom.com/s3/csp/5915/1713458686710/UNI_Nike_Disc_804x200_disc.jpg";
+	const text = document.createElement("span");
+	text.classList.add("image-text");
+	text.innerHTML = `Nike <br />
+  Discover Now
+    `;
 
+	banner.appendChild(image);
+	banner.appendChild(text);
+
+	productsContainer.appendChild(banner);
+};
 topHeader();
 createNavbar();
 options();
@@ -528,3 +537,4 @@ productsContainer.appendChild(createCarousel());
 productsContainer.appendChild(createImageDivs());
 productsContainer.appendChild(createInspiredSection());
 productsContainer.appendChild(createShopSection());
+middle_banner();

@@ -107,12 +107,11 @@ hr {
 }
 
 .image-text {
-	margin-left: 100px;
+	margin-left: 250px;
 	text-align: center;
 	color: #fff;
 	font-style: bold;
 }
-/* Dropdown styling */
 .dropDown_container {
 	display: none;
 	position: absolute;
@@ -218,13 +217,11 @@ hr {
 	display: block;
 }
 
-/* CSS for the inspired container */
 .inspired-container {
 	text-align: center;
 	margin-top: 50px;
 }
 
-/* CSS for the centered text */
 .centered-text {
 	margin-bottom: 20px;
 }
@@ -310,63 +307,46 @@ hr {
 	margin-bottom: 20px;
 }
 
-/* CSS for the parent container */
 .shop-container {
 	text-align: center;
-	margin-top: 20px;
+	margin-top: 50px;
 }
 
-/* CSS for the introductory text */
 .intro-text {
-	margin-bottom: 20px;
+	margin-bottom: 30px;
+	font-size: large;
 }
 
-/* CSS for each product div */
 .product {
 	display: inline-block;
-	width: calc(33.33% - 20px); /* Adjust width as needed */
-	margin: 0 10px;
+	margin: 0 20px;
 	text-align: left;
 	margin-bottom: 20px;
+	width: 150px;
 }
 
-/* CSS for product images */
 .product img {
 	width: 100%;
 	height: auto;
 }
 
-/* CSS for product description */
-.description {
+.name {
 	font-weight: bold;
 	margin-top: 10px;
 }
 
-/* CSS for product price */
 .price {
 	color: green;
 	margin-top: 5px;
 }
 
-/* CSS for product offer */
 .offer {
 	color: red;
 	margin-top: 5px;
 }
 
-/* CSS for strike-through price */
 .strike-price {
 	text-decoration: line-through;
 	color: grey;
 	margin-top: 5px;
-}
-
-/* CSS for product rating */
-.rating {
-	margin-top: 5px;
-}
-
-/* CSS for star icons */
-.fa-star {
-	color: gold;
 }
