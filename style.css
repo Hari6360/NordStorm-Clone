@@ -22,3 +22,331 @@ body {
 	flex-grow: 1;
 	text-align: center;
 }
+
+.navbar {
+	background-color: #fff;
+	color: #000;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+	font-size: 20px;
+}
+
+.logo {
+	font-size: 24px;
+	margin-right: 50px;
+}
+
+.search-bar {
+	flex-grow: 1;
+	margin: 0 30px;
+}
+
+.search-bar input[type="text"] {
+	width: 80%;
+	padding: 6px;
+	font-size: 14px;
+	border: 1px solid #000;
+	border-radius: 4px;
+}
+
+.nav-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.nav-list li {
+	display: inline-block;
+	margin-right: 50px;
+	justify-content: space-evenly;
+}
+
+.nav-list li a {
+	color: black;
+	text-decoration: none;
+}
+
+.nav-list li a:hover {
+	text-decoration: underline;
+}
+
+hr {
+	border: none;
+	border-top: 1px solid gray;
+	margin: 10px 0;
+}
+
+.options-bar {
+	display: flex;
+	justify-content: center;
+}
+
+.list-container {
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.list-container a {
+	text-decoration: none;
+	color: #333;
+	padding: 10px;
+}
+
+.top-banner {
+	display: flex;
+	align-items: center;
+	background-color: #000;
+	margin-top: 20px;
+}
+
+.image-text {
+	margin-left: 250px;
+	text-align: center;
+	color: #fff;
+	font-style: bold;
+}
+.dropDown_container {
+	display: none;
+	position: absolute;
+	background-color: rgba(249, 249, 249, 0.7);
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	padding: 12px;
+}
+
+.dropdown-item {
+	display: inline-block;
+	margin-right: 50px;
+}
+
+.subcategory-item {
+	display: block;
+	margin-top: 20px;
+}
+
+.banner-carousel {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+
+.banner-carousel-inner {
+	display: flex;
+	transition: transform 0.5s ease;
+}
+
+.banner-carousel-slide {
+	flex: 0 0 100%;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+.carousel-image-container {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	height: 100vh;
+	margin-top: 50px;
+}
+
+.carousel-image {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.banner-carousel-text {
+	flex: 1;
+	padding: 20px;
+	background-color: rgba(0, 0, 0, 0);
+	color: black;
+	position: absolute;
+	right: 80px;
+	top: 0;
+	bottom: 0;
+	padding: 20px;
+	overflow: hidden;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: absolute;
+	font-weight: bold;
+	font-size: 25px;
+}
+
+.banner-carousel-prev,
+.banner-carousel-next {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 20px;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+.banner-carousel-prev {
+	left: 10px;
+}
+
+.banner-carousel-next {
+	right: 10px;
+}
+
+.image-container {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 50px;
+}
+
+.image-div {
+	width: 23%;
+}
+
+.image-div img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+.inspired-container {
+	text-align: center;
+	margin-top: 50px;
+}
+
+.centered-text {
+	margin-bottom: 20px;
+}
+
+.centered-text h2 {
+	font-size: 24px;
+	margin-bottom: 10px;
+}
+
+.centered-text p {
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+
+.centered-text a {
+	color: blue;
+	text-decoration: none;
+}
+
+.centered-text a:hover {
+	text-decoration: underline;
+}
+
+.inspired-container {
+	text-align: center;
+	margin-top: 50px;
+}
+
+.centered-text {
+	margin-bottom: 20px;
+}
+
+.centered-text h2 {
+	font-size: 24px;
+	margin-bottom: 10px;
+}
+
+.centered-text p {
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+
+.centered-text a {
+	color: black;
+	text-decoration: none;
+}
+
+.centered-text a:hover {
+	text-decoration: underline;
+}
+
+.image-description {
+	display: inline-block;
+	width: 30%;
+	margin: 0 10px;
+	vertical-align: top;
+}
+
+.image-description img {
+	width: 100%;
+	height: auto;
+	margin-bottom: 10px;
+}
+
+.image-description p {
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+
+.image-description a {
+	color: black;
+	text-decoration: none;
+}
+
+.image-description a:hover {
+	text-decoration: underline;
+}
+
+hr {
+	border: none;
+	border-top: 5px solid black;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.shop-container {
+	text-align: center;
+	margin-top: 50px;
+}
+
+.intro-text {
+	margin-bottom: 30px;
+	font-size: large;
+}
+
+.product {
+	display: inline-block;
+	margin: 0 20px;
+	text-align: left;
+	margin-bottom: 20px;
+	width: 150px;
+}
+
+.product img {
+	width: 100%;
+	height: auto;
+}
+
+.name {
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+.price {
+	color: green;
+	margin-top: 5px;
+}
+
+.offer {
+	color: red;
+	margin-top: 5px;
+}
+
+.strike-price {
+	text-decoration: line-through;
+	color: grey;
+	margin-top: 5px;
+}
